@@ -5,7 +5,7 @@
 
 using namespace std;
 
-string alphabet[27] = {
+string alphabet[37] = {
  ".-",      //A
  "-...",    //B
  "-.-.",    //C
@@ -32,7 +32,17 @@ string alphabet[27] = {
  "-..-",    //X
  "-.--",    //Y
  "--..",    //Z
- " "     //SPACE
+ " ",       //SPACE
+ ".----",   //1
+ "..---",   //2
+ "...--",   //3
+ "....-",   //4
+ ".....",   //5
+ "-....",   //6
+ "--...",   //7
+ "---..",   //8
+ "----.",   //9
+ "-----"    //0
 };
 
 void description(){
@@ -48,7 +58,7 @@ void description(){
     cout << "add saving options." << endl;
     cout << "" << endl;
     cout << "Author: Michu" << endl;
-    cout << "Version: 0.2 (Beta)" << endl;
+    cout << "Version: 0.3 (Beta)" << endl;
     cout << "---------------------------" << endl;
     cout << "   TO BACK PRESS ANY KEY   " << endl;
     cout << "---------------------------" << endl;
@@ -86,6 +96,16 @@ void texttomorse_convert(string text){
             case 'y': cout << alphabet[24] << " "; break;
             case 'z': cout << alphabet[25] << " "; break;
             case ' ': cout << alphabet[26] << " "; break;
+            case '1': cout << alphabet[27] << " "; break;
+            case '2': cout << alphabet[28] << " "; break;
+            case '3': cout << alphabet[29] << " "; break;
+            case '4': cout << alphabet[30] << " "; break;
+            case '5': cout << alphabet[31] << " "; break;
+            case '6': cout << alphabet[32] << " "; break;
+            case '7': cout << alphabet[33] << " "; break;
+            case '8': cout << alphabet[34] << " "; break;
+            case '9': cout << alphabet[35] << " "; break;
+            case '0': cout << alphabet[36] << " "; break;
             default: cout << "ERROR "; break;
         }
     }
