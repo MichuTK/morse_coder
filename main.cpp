@@ -3,9 +3,9 @@
 #include <conio.h>
 #include <string>
 
-
 using namespace std;
-string alphabet[26] = {
+
+string alphabet[27] = {
  ".-",      //A
  "-...",    //B
  "-.-.",    //C
@@ -31,12 +31,33 @@ string alphabet[26] = {
  ".--",     //W
  "-..-",    //X
  "-.--",    //Y
- "--.."     //Z
+ "--..",    //Z
+ " "     //SPACE
 };
+
+void description(){
+    system("cls");
+    cout << "---------------------------" << endl;
+    cout << "        DESCRIPTION        " << endl;
+    cout << "---------------------------" << endl;
+    cout << "This program is a simple" << endl;
+    cout << "convertor morse to text" << endl;
+    cout << "or text to morse." << endl;
+    cout << "" << endl;
+    cout << "In next verrsion I'm going to" << endl;
+    cout << "add saving options." << endl;
+    cout << "" << endl;
+    cout << "Author: Michu" << endl;
+    cout << "Version: 0.2 (Beta)" << endl;
+    cout << "---------------------------" << endl;
+    cout << "   TO BACK PRESS ANY KEY   " << endl;
+    cout << "---------------------------" << endl;
+    getch();
+}
 
 void texttomorse_convert(string text){
     int length = text.length();
-    for(int i = 0; i < length; i++){
+    for(int i = 0; i < length; i++){ //Convert
         switch(text[i]){
             case 'a': cout << alphabet[0] << " "; break;
             case 'b': cout << alphabet[1] << " "; break;
@@ -64,6 +85,7 @@ void texttomorse_convert(string text){
             case 'x': cout << alphabet[23] << " "; break;
             case 'y': cout << alphabet[24] << " "; break;
             case 'z': cout << alphabet[25] << " "; break;
+            case ' ': cout << alphabet[26] << " "; break;
             default: cout << "ERROR "; break;
         }
     }
@@ -71,20 +93,26 @@ void texttomorse_convert(string text){
 
 void texttomorse_menu(){
     string text;
-    system("cls");
-    cout << "---------------------------" << endl;
-    cout << "       TEXT TO MORSE       " << endl;
-    cout << "---------------------------" << endl;
-    cout << "Text:" << endl;
-    cin >> text;
-    cout << "---------------------------" << endl;
-    cout << "Morse:" << endl;
-    texttomorse_convert(text);
-    cout << endl;
-    cout << "---------------------------" << endl;
-    cout << " TO CONTINUE PRESS ANY KEY " << endl;
-    cout << "---------------------------" << endl;
-    getch();
+    char choose;
+    do{
+        system("cls");
+        cout << "---------------------------" << endl;
+        cout << "       TEXT TO MORSE       " << endl;
+        cout << "---------------------------" << endl;
+        cout << "Text:" << endl;
+        getline(cin, text);
+        cout << "---------------------------" << endl;
+        cout << "Morse:" << endl;
+        texttomorse_convert(text);
+        cout << endl;
+        cout << "---------------------------" << endl;
+        cout << "[1] Again " << endl;
+        cout << "[2] Exit to menu " << endl;
+        cout << "[0] Exit " << endl;
+        cout << "---------------------------" << endl;
+        choose = getch();
+    }while(choose == '1');
+    if(choose == '0') exit(0);
 }
 
 void morsetotext_menu(){
@@ -106,6 +134,7 @@ int main()
         cout << "---------------------------" << endl;
         cout << "[1] Text to Morse " << endl;
         cout << "[2] Morse to Text (comming soon...)" << endl;
+        cout << "[9] Description" << endl;
         cout << "[0] Exit" << endl;
         cout << "---------------------------" << endl;
 
@@ -114,6 +143,7 @@ int main()
         switch(choose){
             case '1': texttomorse_menu(); break;
             case '2': morsetotext_menu(); break;
+            case '9': description(); break;
             case '0': return 0; break;
             default:
                 cout << "      Error. Try again     " << endl;
@@ -124,6 +154,5 @@ int main()
                 break;
         }
     }
-    getch();
     return 0;
 }
